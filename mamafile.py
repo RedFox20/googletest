@@ -9,7 +9,7 @@ class googletest(mama.BuildTarget):
         pass
 
     def configure(self):
-        pass
+        self.enable_cxx20()
 
     def package(self):
         self.export_includes(['include'], build_dir=True)
