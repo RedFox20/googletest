@@ -144,6 +144,9 @@ if(CMAKE_SYSTEM_NAME MATCHES "QNX")
 endif()
 target_link_libraries(gtest_main PUBLIC gtest)
 
+set_property(TARGET gtest PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+set_property(TARGET gtest_main PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
 ########################################################################
 #
 # Install rules

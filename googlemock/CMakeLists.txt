@@ -93,6 +93,9 @@ if (MSVC)
               "${gtest_dir}/src/gtest-all.cc"
               src/gmock-all.cc
               src/gmock_main.cc)
+              
+  set_property(TARGET gmock PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  set_property(TARGET gmock_main PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 else()
   cxx_library(gmock "${cxx_strict}" src/gmock-all.cc)
   target_link_libraries(gmock PUBLIC gtest)
