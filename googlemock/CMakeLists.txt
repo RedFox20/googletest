@@ -83,6 +83,7 @@ include_directories(${gmock_build_include_dirs})
 # are used for other targets, to ensure that Google Mock can be compiled by
 # a user aggressive about warnings.
 if (MSVC)
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
   cxx_library(gmock
               "${cxx_strict}"
               "${gtest_dir}/src/gtest-all.cc"
@@ -93,9 +94,6 @@ if (MSVC)
               "${gtest_dir}/src/gtest-all.cc"
               src/gmock-all.cc
               src/gmock_main.cc)
-              
-  set_property(TARGET gmock PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-  set_property(TARGET gmock_main PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 else()
   cxx_library(gmock "${cxx_strict}" src/gmock-all.cc)
   target_link_libraries(gmock PUBLIC gtest)
