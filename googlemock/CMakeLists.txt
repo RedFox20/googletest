@@ -83,7 +83,7 @@ include_directories(${gmock_build_include_dirs})
 # are used for other targets, to ensure that Google Mock can be compiled by
 # a user aggressive about warnings.
 if (MSVC)
-  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
   cxx_library(gmock
               "${cxx_strict}"
               "${gtest_dir}/src/gtest-all.cc"

@@ -83,7 +83,7 @@ if (gtest_hide_internal_symbols)
 endif()
 
 if(MSVC)
-  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
 endif()
 
 # Define helper functions and macros used by Google Test.
